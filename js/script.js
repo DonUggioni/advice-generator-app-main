@@ -21,15 +21,28 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 };
 
 const getAdvice = function () {
-  getJSON('https://api.adviceslip.com/advice').then((data) => {
-    adviceText.textContent = `"${data.slip.advice}"`;
-    adviceId.textContent = data.slip.id;
+  getJSON('https://api.adviceslip.com/advice')
+    .then((data) => {
+      adviceText.textContent = `"${data.slip.advice}"`;
+      adviceId.textContent = data.slip.id;
+    })
+    .catch((err) => {
+      adviceText.textContent = `Oops! Something went wrong! Please try again.`;
+      adviceId.textContent = '000';
+      console.error(err.message);
+    });
+};
+
+const app = function () {
+  window.addEventListener('load', function () {
+    getAdvice();
+    diceContainer.addEventListener('click', function () {
+      diceAnimation();
+      setTimeout(function () {
+        getAdvice();
+      }, 1000);
+    });
   });
 };
 
-diceContainer.addEventListener('click', function () {
-  diceAnimation();
-  getAdvice();
-});
-
-// https://api.adviceslip.com/advice
+app();

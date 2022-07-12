@@ -103,7 +103,8 @@ body {
 .attribution {
   font-size: 11px;
   text-align: center;
+  color: var(--light_cyan);
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--neon__green);
 }
