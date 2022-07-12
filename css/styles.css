@@ -108,3 +108,27 @@ body {
 .attribution a {
   color: var(--neon__green);
 }
+
+@media (max-width: 30em) {
+  .container {
+    padding: 4rem 2.4rem 0;
+  }
+
+  .advice {
+    font-size: 1.1rem;
+  }
+
+  .advice__text {
+    font-size: 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .divider {
+    margin-bottom: 3.2rem;
+  }
+
+  .dice__container:hover {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
